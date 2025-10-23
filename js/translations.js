@@ -8,49 +8,49 @@ const translations = {
       contact: "İletişim"
     },
     hero: {
-      subtitle: "Biz",
-      title: "BEBEK KUNDALARI YAPIYORUZ",
-      description: "İnsanlara ve gezegenimize olan etkimizi derinlemesine önemsiyoruz, her zaman gelişiyor, öğreniyor ve daha iyi bir yol arıyoruz",
-      cta: "KUNDAK OLUŞTUR",
-      tagline: "yaşamın her anı için kolay parça"
+      subtitle: "We make",
+      title: "DOĞAL VE SAĞLIKLI ÇOCUK GIYİMİ",
+      description: "Bebekleriniz ve çocuklarınız için %100 organik pamuktan, doğal boyalarla üretilmiş kıyafetler. Gezegenimize ve çocuklarımızın geleceğine saygıyla...",
+      cta: "ÜRÜNLERİ KEŞFET",
+      tagline: "doğal, sağlıklı ve sevgi dolu"
     },
     testimonials: {
       title: "müşterilerimizin yorumları",
-      review1: "Fotoğraf en sevdiğim fotoğraflardan biri ve muhtemelen çektiğim en iyi fotoğraf... şal kesinlikle harika!",
-      author1: "Ayşe Yılmaz",
-      review2: "Deneyimim ile daha mutlu olamazdım - site bu süreci inanılmaz derecede kolay ve eğlenceli hale getiriyor, yurtdışından geldiğini bildiğim için daha fazla endişelenemezdim!",
-      author2: "Zeynep Kaya",
-      review3: "Şalımı oluştururken istediğim tüm yardımı aldım.",
-      author3: "Elif Demir"
+      review1: "Kızımın hassas cildine hiç tahriş yapmadı. Hem yumuşacık hem de yıkamada rengi hiç solmuyor. Kleine Wunder gerçekten harika!",
+      author1: "Ayşe Yılmaz / München",
+      review2: "Organik olduğunu bilmek bana huzur veriyor. Oğlum giydiklerini seviyor ve ben de kalitesine güveniyorum.",
+      author2: "Sarah Schmidt / Berlin",
+      review3: "Hem çocuğum hem de gezegen için en iyi seçim. Artık başka markaya bakmıyorum bile!",
+      author3: "Emma Weber / Hamburg"
     },
     designer: {
-      become: "ŞİMDİ",
-      own: "Kendi",
-      title: "KUNDAK TASARIMCINIZ OLUN",
-      description: "Görsellerinizi kendi eşsiz markanıza dönüştürün",
-      cta: "KUNDAK OLUŞTUR"
+      become: "KENDİ",
+      own: "Kıyafetini",
+      title: "TASARLA",
+      description: "Hayal ettiğin deseni seç, rengini belirle, çocuğunun ölçülerine özel kıyafetini birlikte yaratalım. Her parça, bir hikaye taşısın...",
+      cta: "TASARLAMAYA BAŞLA"
     },
     features: {
-      title: "Farklı Stiller, Uzun Ömürlü Baskılar",
-      subtitle: "SCAFFOS ile tasarım yaparken, temelde unutulmaz anılar yaratıyorsunuz. Kendi kundağınızı istediğiniz şekilde yazdırın ve çok çeşitli tasarımlar arasından seçim yapın.",
+      title: "Farklı Stiller, Kalıcı Renkler, Sonsuz Sevgi",
+      subtitle: "Her Kleine Wunder kıyafeti, çocuğunuzun konforunu ve gezegenimizin geleceğini düşünerek tasarlanır.",
       fairTrade: "Adil Ticaret",
       zeroWaste: "Sıfır Atık",
-      organic: "Sertifikalı Organik Kumaşlar",
+      organic: "Sertifikalı Organik Kumaş",
       slowFashion: "Yavaş Moda"
     },
     products: {
       bestSellers: "En Çok Satanlar",
       item1: {
-        name: "İpek Kundak",
-        size: "96x96"
+        name: "Papatya Tişört",
+        size: "2-4 yaş"
       },
       item2: {
-        name: "Yün/İpek Kundak",
-        size: "200x100"
+        name: "Orman Dostları Sweatshirt",
+        size: "4-6 yaş"
       },
       item3: {
-        name: "Kaşmir Kundak",
-        size: "180x100"
+        name: "Gökkuşağı Elbise",
+        size: "3-5 yaş"
       }
     },
     product: {
@@ -63,7 +63,7 @@ const translations = {
       descriptionTab: "Açıklama",
       materialTab: "Malzeme",
       careTab: "Bakım",
-      descriptionText: "Organik pamuktan üretilmiş, bebeğinizin hassas cildi için güvenli baby swaddles. Her kundak sevgi ve özenle tasarlanmıştır.",
+      descriptionText: "Organik pamuktan üretilmiş, çocuğunuzun hassas cildi için güvenli kıyafetler. Her parça sevgi ve özenle tasarlanmıştır.",
       materialText: "%100 GOTS sertifikalı organik pamuk. Hiçbir zararlı kimyasal içermez.",
       careText: "30°C'de yıkayınız. Düşük ısıda ütüleyiniz. Çamaşır suyu kullanmayınız."
     },
@@ -114,12 +114,12 @@ const translations = {
     },
     social: {
       title: "BİZİ TAKİP EDİN",
-      subtitle: "Hikayemizi birlikte yazalım"
+      subtitle: "Kleine Wunder ailesinin bir parçası olun. Hikayelerimizi, müşterilerimizin mutluluğunu ve sürdürülebilir üretim yolculuğumuzu keşfedin."
     },
     footer: {
       wear: "GİY",
-      captive: "Büyüleyici",
-      tagline: "HİKAYE ANLATAN KUNDAKLAR",
+      captive: "ve YAŞA",
+      tagline: "HER KIYAFET BİR HİKAYE ANLATIR",
       aboutTitle: "Hakkımızda",
       ourStory: "Hikayemiz",
       values: "Değerlerimiz",
@@ -168,49 +168,49 @@ const translations = {
       contact: "Kontakt"
     },
     hero: {
-      subtitle: "Wir machen",
-      title: "BABY-PUCKTÜCHER",
-      description: "Wir kümmern uns zutiefst um Menschen und unsere Auswirkungen auf den Planeten, entwickeln uns ständig weiter, lernen und suchen nach einem besseren Weg",
-      cta: "PUCKTUCH ERSTELLEN",
-      tagline: "einfaches Stück für das Leben, das wir genießen"
+      subtitle: "We make",
+      title: "NATÜRLICHE UND GESUNDE KINDERKLEIDUNG",
+      description: "Kleidung für Ihre Babys und Kinder aus 100% Bio-Baumwolle, gefärbt mit natürlichen Farben. Mit Respekt für unseren Planeten und die Zukunft unserer Kinder...",
+      cta: "PRODUKTE ENTDECKEN",
+      tagline: "natürlich, gesund und voller Liebe"
     },
     testimonials: {
       title: "kundenbewertungen",
-      review1: "Das Foto ist eines meiner absoluten Lieblingsfotos und wahrscheinlich das beste Foto, das ich je gemacht habe... der Schal ist absolut schön!",
-      author1: "Anna Schmidt",
-      review2: "Ich könnte nicht glücklicher sein mit meiner Erfahrung - die Website macht diesen Prozess unglaublich einfach und macht Spaß, und ich könnte mir keine Sorgen mehr machen, da ich wusste, dass es aus Übersee kam!",
-      author2: "Andrea Müller",
-      review3: "Ich hatte all die Hilfe, die ich beim Erstellen meines Schals brauchte.",
-      author3: "Becky Wagner"
+      review1: "Es hat die empfindliche Haut meiner Tochter überhaupt nicht gereizt. Sowohl super weich als auch farbecht beim Waschen. Kleine Wunder ist wirklich großartig!",
+      author1: "Ayşe Yılmaz / München",
+      review2: "Zu wissen, dass es biologisch ist, gibt mir Seelenfrieden. Mein Sohn liebt es zu tragen und ich vertraue der Qualität.",
+      author2: "Sarah Schmidt / Berlin",
+      review3: "Die beste Wahl sowohl für mein Kind als auch für den Planeten. Ich schaue nicht einmal mehr auf andere Marken!",
+      author3: "Emma Weber / Hamburg"
     },
     designer: {
-      become: "WERDEN SIE JETZT IHR",
-      own: "Eigener",
-      title: "PUCKTUCH-DESIGNER",
-      description: "Verwandeln Sie Ihre Bilder in Ihre eigene einzigartige Marke",
-      cta: "PUCKTUCH ERSTELLEN"
+      become: "GESTALTE DEINE",
+      own: "Eigene",
+      title: "KLEIDUNG",
+      description: "Wähle dein Wunschmuster, bestimme die Farbe und lass uns gemeinsam die maßgeschneiderte Kleidung für dein Kind kreieren. Jedes Stück trägt eine Geschichte...",
+      cta: "JETZT GESTALTEN"
     },
     features: {
-      title: "Verschiedene Stile, Langlebige Drucke",
-      subtitle: "Während Sie mit SCAFFOS entwerfen, schaffen Sie grundsätzlich zeitlose Erinnerungen. Drucken Sie Ihr eigenes Pucktuch so, wie Sie es möchten, und wählen Sie aus einer Vielzahl von Designs.",
+      title: "Verschiedene Stile, Dauerhafte Farben, Endlose Liebe",
+      subtitle: "Jedes Kleine Wunder Kleidungsstück wird mit Blick auf den Komfort Ihres Kindes und die Zukunft unseres Planeten entworfen.",
       fairTrade: "Fairer Handel",
-      zeroWaste: "Null Abfall",
+      zeroWaste: "Zero Waste",
       organic: "Zertifizierte Bio-Stoffe",
       slowFashion: "Slow Fashion"
     },
     products: {
       bestSellers: "Bestseller",
       item1: {
-        name: "Seide Pucktuch",
-        size: "96x96"
+        name: "Gänseblümchen T-Shirt",
+        size: "2-4 Jahre"
       },
       item2: {
-        name: "Wolle/Seide Pucktuch",
-        size: "200x100"
+        name: "Waldfreunde Sweatshirt",
+        size: "4-6 Jahre"
       },
       item3: {
-        name: "Kaschmir Pucktuch",
-        size: "180x100"
+        name: "Regenbogen Kleid",
+        size: "3-5 Jahre"
       }
     },
     product: {
@@ -223,7 +223,7 @@ const translations = {
       descriptionTab: "Beschreibung",
       materialTab: "Material",
       careTab: "Pflege",
-      descriptionText: "Aus Bio-Baumwolle hergestellt, sicher für die empfindliche Haut Ihres Babys. Jedes Pucktuch wird mit Liebe und Sorgfalt entworfen.",
+      descriptionText: "Aus Bio-Baumwolle hergestellt, sicher für die empfindliche Haut Ihres Kindes. Jedes Stück wird mit Liebe und Sorgfalt entworfen.",
       materialText: "100% GOTS-zertifizierte Bio-Baumwolle. Enthält keine schädlichen Chemikalien.",
       careText: "Bei 30°C waschen. Bei niedriger Temperatur bügeln. Kein Bleichmittel verwenden."
     },
@@ -274,12 +274,12 @@ const translations = {
     },
     social: {
       title: "FOLGEN SIE UNS",
-      subtitle: "Schreiben wir unsere Geschichte zusammen"
+      subtitle: "Werden Sie Teil der Kleine Wunder Familie. Entdecken Sie unsere Geschichten, die Freude unserer Kunden und unsere nachhaltige Produktionsreise."
     },
     footer: {
-      wear: "TRAGEN",
-      captive: "Faszinierend",
-      tagline: "PUCKTÜCHER, DIE EINE GESCHICHTE ERZÄHLEN",
+      wear: "TRAGE",
+      captive: "und LEBE",
+      tagline: "JEDES KLEIDUNGSSTÜCK ERZÄHLT EINE GESCHICHTE",
       aboutTitle: "Über uns",
       ourStory: "Unsere Geschichte",
       values: "Unsere Werte",
@@ -329,30 +329,30 @@ const translations = {
     },
     hero: {
       subtitle: "We make",
-      title: "BABY SWADDLES",
-      description: "We care deeply about people & our impact on the planet, always evolving, learning & looking for a better way",
-      cta: "CREATE SWADDLE",
-      tagline: "easy piece for life we enjoy"
+      title: "NATURAL AND HEALTHY CHILDREN'S CLOTHING",
+      description: "Clothing for your babies and children made from 100% organic cotton, dyed with natural colors. With respect for our planet and our children's future...",
+      cta: "DISCOVER PRODUCTS",
+      tagline: "natural, healthy and full of love"
     },
     testimonials: {
       title: "customer reviews",
-      review1: "The photo is one of my very favorites and probably the best photo I ever took... the scarf is absolutely lovely!",
-      author1: "Scarecrow Mendoza",
-      review2: "I couldn't be happier with my experience-the site makes this process incredibly easy and fun, and I couldn't be more concerned me since I knew it was coming from overseas!",
-      author2: "Andrea",
-      review3: "I had all the help I could want in creating my scarf.",
-      author3: "Becky Redman"
+      review1: "It didn't irritate my daughter's sensitive skin at all. Super soft and the color doesn't fade in the wash. Kleine Wunder is truly amazing!",
+      author1: "Ayşe Yılmaz / München",
+      review2: "Knowing it's organic gives me peace of mind. My son loves wearing them and I trust the quality.",
+      author2: "Sarah Schmidt / Berlin",
+      review3: "The best choice for both my child and the planet. I don't even look at other brands anymore!",
+      author3: "Emma Weber / Hamburg"
     },
     designer: {
-      become: "BECOME YOUR",
+      become: "DESIGN YOUR",
       own: "Own",
-      title: "SWADDLES DESIGNER NOW",
-      description: "Turn your images into your own one-of-a-kind brand",
-      cta: "CREATE SWADDLE"
+      title: "CLOTHING",
+      description: "Choose your dream pattern, select the color, and let's create custom-sized clothing for your child together. Every piece carries a story...",
+      cta: "START DESIGNING"
     },
     features: {
-      title: "Different Styles, Long-Lasting Prints",
-      subtitle: "While you design with SCAFFOS, you are fundamentally making our turn into timeless memories. Print your own swaddle the way you want and choose from a wide variety of designs.",
+      title: "Different Styles, Lasting Colors, Endless Love",
+      subtitle: "Every Kleine Wunder garment is designed with your child's comfort and our planet's future in mind.",
       fairTrade: "Fair Trade",
       zeroWaste: "Zero Waste",
       organic: "Certified Organic Fabrics",
@@ -361,16 +361,16 @@ const translations = {
     products: {
       bestSellers: "Best Sellers",
       item1: {
-        name: "Silk Swaddle",
-        size: "96x96"
+        name: "Daisy T-Shirt",
+        size: "2-4 years"
       },
       item2: {
-        name: "Wool/Silk Swaddle",
-        size: "200x100"
+        name: "Forest Friends Sweatshirt",
+        size: "4-6 years"
       },
       item3: {
-        name: "Cashmere Swaddle",
-        size: "180x100"
+        name: "Rainbow Dress",
+        size: "3-5 years"
       }
     },
     product: {
@@ -383,7 +383,7 @@ const translations = {
       descriptionTab: "Description",
       materialTab: "Material",
       careTab: "Care",
-      descriptionText: "Made from organic cotton, safe for your baby's delicate skin. Each swaddle is designed with love and care.",
+      descriptionText: "Made from organic cotton, safe for your child's delicate skin. Each piece is designed with love and care.",
       materialText: "100% GOTS certified organic cotton. Contains no harmful chemicals.",
       careText: "Wash at 30°C. Iron at low temperature. Do not use bleach."
     },
@@ -434,12 +434,12 @@ const translations = {
     },
     social: {
       title: "FOLLOW US",
-      subtitle: "Let's write our story together"
+      subtitle: "Become part of the Kleine Wunder family. Discover our stories, our customers' joy, and our sustainable production journey."
     },
     footer: {
       wear: "WEAR",
-      captive: "Captive",
-      tagline: "SWADDLES THAT TELL A STORY",
+      captive: "and LIVE",
+      tagline: "EVERY GARMENT TELLS A STORY",
       aboutTitle: "About Us",
       ourStory: "Our Story",
       values: "Our Values",
