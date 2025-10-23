@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kleine Wunder - Naturkleidung</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- LOGIN/REGISTER MODAL -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login" data-i18n="auth.login">Giriş Yap</button>
+                <button class="auth-tab" data-tab="register" data-i18n="auth.register">Kayıt Ol</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form active">
+                <h2 data-i18n="auth.loginTitle">Hesabınıza Giriş Yapın</h2>
+                <div class="form-group">
+                    <input type="email" id="loginEmail" required>
+                    <label data-i18n="auth.email">E-posta</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="loginPassword" required>
+                    <label data-i18n="auth.password">Şifre</label>
+                </div>
+                <a href="#" class="forgot-password" data-i18n="auth.forgotPassword">Şifremi Unuttum</a>
+                <button type="submit" class="btn-primary" data-i18n="auth.login">Giriş Yap</button>
+                <div class="social-login">
+                    <p data-i18n="auth.orLoginWith">veya şununla giriş yap</p>
+                    <button type="button" class="btn-social google">Google</button>
+                    <button type="button" class="btn-social facebook">Facebook</button>
+                </div>
+            </form>
+
+            <!-- Register Form -->
+            <form id="registerForm" class="auth-form">
+                <h2 data-i18n="auth.registerTitle">Yeni Hesap Oluştur</h2>
+                <div class="form-group">
+                    <input type="text" id="registerName" required>
+                    <label data-i18n="auth.name">Ad Soyad</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="registerEmail" required>
+                    <label data-i18n="auth.email">E-posta</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="registerPassword" required>
+                    <label data-i18n="auth.password">Şifre</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="registerPasswordConfirm" required>
+                    <label data-i18n="auth.confirmPassword">Şifre Tekrar</label>
+                </div>
+                <button type="submit" class="btn-primary" data-i18n="auth.register">Kayıt Ol</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- PRODUCT DETAIL MODAL -->
+    <div id="productModal" class="modal">
+        <div class="modal-content product-modal">
+            <span class="close-modal">&times;</span>
+            <div class="product-modal-grid">
+                <div class="product-gallery">
+                    <img id="modalProductImage" src="" alt="">
+                </div>
+                <div class="product-info">
+                    <h2 id="modalProductName"></h2>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="review-count">(28 <span data-i18n="product.reviews">yorumlar</span>)</span>
+                    </div>
+                    <p class="product-price" id="modalProductPrice"></p>
+                    <p class="product-description" id="modalProductDescription"></p>
+
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label data-i18n="product.size">Boyut:</label>
+                            <select id="modalProductSize">
+                                <option value="96x96">96x96 cm</option>
+                                <option value="120x120">120x120 cm</option>
+                                <option value="200x100">200x100 cm</option>
+                            </select>
+                        </div>
+
+                        <div class="option-group">
+                            <label data-i18n="product.quantity">Adet:</label>
+                            <div class="quantity-selector">
+                                <button type="button" class="qty-btn minus">-</button>
+                                <input type="number" id="modalProductQty" value="1" min="1" max="10">
+                                <button type="button" class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-stock" data-i18n="product.inStock">
+                        ✓ Stokta var
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="btn-primary btn-add-to-cart" id="modalAddToCart">
+                            <span data-i18n="cart.addToCart">Sepete Ekle</span>
+                        </button>
+                        <button class="btn-wishlist" id="modalAddToWishlist">
+                            <span>♡</span>
+                        </button>
+                    </div>
+
+                    <div class="product-tabs">
+                        <div class="tab-buttons">
+                            <button class="tab-btn active" data-tab="description" data-i18n="product.descriptionTab">Açıklama</button>
+                            <button class="tab-btn" data-tab="material" data-i18n="product.materialTab">Malzeme</button>
+                            <button class="tab-btn" data-tab="care" data-i18n="product.careTab">Bakım</button>
+                        </div>
+                        <div class="tab-content active" id="description">
+                            <p data-i18n="product.descriptionText">Organik pamuktan üretilmiş, bebeğinizin hassas cildi için güvenli baby swaddles.</p>
+                        </div>
+                        <div class="tab-content" id="material">
+                            <p data-i18n="product.materialText">%100 GOTS sertifikalı organik pamuk</p>
+                        </div>
+                        <div class="tab-content" id="care">
+                            <p data-i18n="product.careText">30°C'de yıkayınız. Düşük ısıda ütüleyiniz.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CART SIDEBAR -->
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>
+                <span data-i18n="cart.title">Sepetim</span>
+                <span id="cartItemCount">(0)</span>
+            </h3>
+            <button class="close-cart">&times;</button>
+        </div>
+
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty" data-i18n="cart.empty">
+                Sepetiniz boş
+            </div>
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span data-i18n="cart.subtotal">Ara Toplam:</span>
+                    <span id="cartSubtotal">0.00 TRY</span>
+                </div>
+                <div class="summary-row">
+                    <span data-i18n="cart.shipping">Kargo:</span>
+                    <span id="cartShipping" data-i18n="cart.freeShipping">Ücretsiz</span>
+                </div>
+                <div class="summary-row total">
+                    <span data-i18n="cart.total">Toplam:</span>
+                    <span id="cartTotal">0.00 TRY</span>
+                </div>
+            </div>
+
+            <a href="pages/cart.html" class="btn-primary btn-checkout" data-i18n="cart.goToCart">
+                Sepete Git
+            </a>
+            <button class="btn-secondary close-cart" data-i18n="cart.continueShopping">
+                Alışverişe Devam
+            </button>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1 class="logo-text">Kleine Wunder</h1>
+                    <p class="logo-subtitle">naturkleidung</p>
+                </div>
+
+                <nav class="nav">
+                    <a href="#home" data-i18n="nav.home">Ana Sayfa</a>
+                    <a href="pages/products.html" data-i18n="nav.products">Ürünler</a>
+                    <a href="#about" data-i18n="nav.about">Hakkımızda</a>
+                    <a href="#contact" data-i18n="nav.contact">İletişim</a>
+                </nav>
+
+                <div class="header-actions">
+                    <!-- Search -->
+                    <div class="search-container">
+                        <button class="icon-btn search-btn" aria-label="Arama">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="m21 21-4.35-4.35"/>
+                            </svg>
+                        </button>
+                        <div class="search-dropdown">
+                            <input type="text" placeholder="Ürün ara..." data-i18n-placeholder="search.placeholder">
+                            <button class="btn-primary">
+                                <span data-i18n="search.button">Ara</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- User -->
+                    <div class="user-container">
+                        <button class="icon-btn user-btn" aria-label="Kullanıcı">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                        </button>
+                        <div class="user-dropdown">
+                            <div class="user-not-logged-in">
+                                <button class="btn-primary" id="loginBtn" data-i18n="auth.login">Giriş Yap</button>
+                                <button class="btn-secondary" id="registerBtn" data-i18n="auth.register">Kayıt Ol</button>
+                            </div>
+                            <div class="user-logged-in" style="display: none;">
+                                <p class="user-greeting">Merhaba, <span id="userName"></span></p>
+                                <a href="pages/account.html" data-i18n="auth.myAccount">Hesabım</a>
+                                <a href="pages/account.html?tab=orders" data-i18n="auth.myOrders">Siparişlerim</a>
+                                <a href="#" data-i18n="auth.myAddresses">Adreslerim</a>
+                                <a href="#" id="wishlistLink">
+                                    <span data-i18n="auth.myWishlist">Favorilerim</span>
+                                    <span class="wishlist-count">0</span>
+                                </a>
+                                <hr>
+                                <a href="#" id="logoutBtn" data-i18n="auth.logout">Çıkış Yap</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cart -->
+                    <button class="icon-btn cart-btn" aria-label="Sepet">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="9" cy="21" r="1"/>
+                            <circle cx="20" cy="21" r="1"/>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                        </svg>
+                        <span class="cart-badge" id="cartBadge">0</span>
+                    </button>
+
+                    <!-- Language Selector -->
+                    <div class="language-selector">
+                        <button class="icon-btn lang-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="2" y1="12" x2="22" y2="12"/>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                        </button>
+                        <div class="lang-dropdown">
+                            <button class="lang-option active" data-lang="tr">
+                                🇹🇷 Türkçe
+                            </button>
+                            <button class="lang-option" data-lang="de">
+                                🇩🇪 Deutsch
+                            </button>
+                            <button class="lang-option" data-lang="en">
+                                🇬🇧 English
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2 data-i18n="hero.subtitle">We make</h2>
+                    <h1 data-i18n="hero.title">BABY SWADDLES</h1>
+                    <p data-i18n="hero.description">
+                        We care deeply about people & our impact on the planet,
+                        always evolving, learning & looking for a better way
+                    </p>
+                    <button class="btn-cta" data-i18n="hero.cta">CREATE SWADDLE</button>
+                    <p class="hero-tagline" data-i18n="hero.tagline">easy piece for life we enjoy</p>
+                </div>
+
+                <div class="hero-images">
+                    <div class="product-stack">
+                        <div class="product-image">
+                            <img src="images/products/product-1.jpg" alt="Silk Swaddle" loading="lazy">
+                        </div>
+                        <div class="product-image">
+                            <img src="images/products/product-2.jpg" alt="Wool Swaddle" loading="lazy">
+                        </div>
+                        <div class="product-image">
+                            <img src="images/products/product-3.jpg" alt="Cashmere Swaddle" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="floating-leaf">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="#C5E5DC">
+                            <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.11-.34C5.83 21.66 8.5 16 17 14c3.5-.5 6.5-2 7-4 .5-2-1-2.5-4-2.5-1.5 0-3 .5-3 .5z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text" data-i18n="testimonials.review1">
+                        The photo is one of my very favorites and probably the best photo I ever took... the scarf is absolutely lovely!
+                    </p>
+                    <p class="testimonial-author" data-i18n="testimonials.author1">Scarecrow Mendoza</p>
+                    <div class="quote-mark">"</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text" data-i18n="testimonials.review2">
+                        I couldn't be happier with my experience-the site makes this process incredibly easy and fun, and I couldn't be more concerned me since I knew it was coming from overseas!
+                    </p>
+                    <p class="testimonial-author" data-i18n="testimonials.author2">Andrea</p>
+                    <div class="quote-mark">"</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text" data-i18n="testimonials.review3">
+                        I had all the help I could want in creating my scarf.
+                    </p>
+                    <p class="testimonial-author" data-i18n="testimonials.author3">Becky Redman</p>
+                    <div class="quote-mark">"</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESIGNER SECTION -->
+    <section class="designer-section">
+        <div class="container">
+            <div class="designer-content">
+                <div class="designer-image">
+                    <img src="images/designer-section.jpg" alt="Design Your Swaddle" loading="lazy">
+                    <div class="fox-illustration">
+                        <svg width="150" height="150" viewBox="0 0 200 200">
+                            <!-- Simple fox illustration -->
+                            <circle cx="100" cy="100" r="40" fill="#F4A460"/>
+                            <circle cx="85" cy="90" r="5" fill="#2C2C2C"/>
+                            <circle cx="115" cy="90" r="5" fill="#2C2C2C"/>
+                            <path d="M 70 70 L 60 40 L 80 70 Z" fill="#F4A460"/>
+                            <path d="M 130 70 L 140 40 L 120 70 Z" fill="#F4A460"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="designer-text">
+                    <h2>
+                        <span data-i18n="designer.become">BECOME YOUR</span>
+                        <span class="script" data-i18n="designer.own">Own</span>
+                    </h2>
+                    <h3 data-i18n="designer.title">SWADDLES DESIGNER NOW</h3>
+                    <p data-i18n="designer.description">
+                        Turn your images into your own one-of-a-kind brand
+                    </p>
+                    <button class="btn-cta" data-i18n="designer.cta">CREATE SWADDLE</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+        <div class="container">
+            <h2 data-i18n="features.title">Different Styles, Long-Lasting Prints</h2>
+            <p class="features-subtitle" data-i18n="features.subtitle">
+                While you design with SCAFFOS, you are fundamentally making our
+                turn into timeless memories. Print your own swaddle the way you
+                want and choose from a wide variety of designs.
+            </p>
+
+            <div class="features-circle">
+                <div class="feature-item feature-top-left">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#D85845">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                        </svg>
+                    </div>
+                    <p data-i18n="features.fairTrade">Fair Trade</p>
+                </div>
+
+                <div class="feature-item feature-top-right">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#D85845">
+                            <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                            <line x1="10" y1="11" x2="10" y2="17"/>
+                            <line x1="14" y1="11" x2="14" y2="17"/>
+                        </svg>
+                    </div>
+                    <p data-i18n="features.zeroWaste">Zero Waste</p>
+                </div>
+
+                <div class="center-image">
+                    <img src="images/products/product-1.jpg" alt="Featured Product" loading="lazy">
+                </div>
+
+                <div class="feature-item feature-bottom-left">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#D85845">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                    </div>
+                    <p data-i18n="features.organic">Certified Organic Fabrics</p>
+                </div>
+
+                <div class="feature-item feature-bottom-right">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#D85845">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                    <p data-i18n="features.slowFashion">Slow Fashion</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEST SELLERS -->
+    <section class="best-sellers">
+        <div class="container">
+            <h2 data-i18n="products.bestSellers">Best Sellers</h2>
+
+            <div class="products-grid" id="productsGrid">
+                <div class="product-card" data-product-id="1">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/product-1.jpg" alt="Silk Swaddle" loading="lazy">
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <span class="heart-icon">♡</span>
+                        </button>
+                        <span class="stock-badge" data-i18n="product.inStock">Stokta</span>
+                        <button class="quick-view" data-i18n="product.quickView">Hızlı Görüntüle</button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-i18n="products.item1.name">Silk Swaddle</h3>
+                        <p class="product-size" data-i18n="products.item1.size">96x96</p>
+                        <p class="product-price">
+                            <span class="price-amount">1290</span>
+                            <span class="price-currency" data-currency="TRY">TRY</span>
+                        </p>
+                        <button class="btn-add-to-cart" data-i18n="cart.addToCart">
+                            Sepete Ekle
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product-id="2">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/product-2.jpg" alt="Wool/Silk Swaddle" loading="lazy">
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <span class="heart-icon">♡</span>
+                        </button>
+                        <span class="stock-badge" data-i18n="product.inStock">Stokta</span>
+                        <button class="quick-view" data-i18n="product.quickView">Hızlı Görüntüle</button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-i18n="products.item2.name">Wool/Silk Swaddle</h3>
+                        <p class="product-size" data-i18n="products.item2.size">200x100</p>
+                        <p class="product-price">
+                            <span class="price-amount">890</span>
+                            <span class="price-currency" data-currency="TRY">TRY</span>
+                        </p>
+                        <button class="btn-add-to-cart" data-i18n="cart.addToCart">
+                            Sepete Ekle
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-product-id="3">
+                    <div class="product-image-wrapper">
+                        <img src="images/products/product-3.jpg" alt="Cashmere Swaddle" loading="lazy">
+                        <button class="wishlist-btn" aria-label="Add to wishlist">
+                            <span class="heart-icon">♡</span>
+                        </button>
+                        <span class="stock-badge" data-i18n="product.inStock">Stokta</span>
+                        <button class="quick-view" data-i18n="product.quickView">Hızlı Görüntüle</button>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name" data-i18n="products.item3.name">Cashmere Swaddle</h3>
+                        <p class="product-size" data-i18n="products.item3.size">180x100</p>
+                        <p class="product-price">
+                            <span class="price-amount">1890</span>
+                            <span class="price-currency" data-currency="TRY">TRY</span>
+                        </p>
+                        <button class="btn-add-to-cart" data-i18n="cart.addToCart">
+                            Sepete Ekle
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL MEDIA SECTION -->
+    <section class="social-media">
+        <div class="container">
+            <h2 data-i18n="social.title">BİZİ TAKİP EDİN</h2>
+            <p class="social-subtitle" data-i18n="social.subtitle">
+                Hikayemizi birlikte yazalım
+            </p>
+
+            <div class="social-icons-grid" id="socialMediaIcons">
+                <!-- Social media icons will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <h2>
+                    <span data-i18n="footer.wear">WEAR</span>
+                    <span class="script" data-i18n="footer.captive">Captive</span>
+                </h2>
+                <p data-i18n="footer.tagline">SWADDLES THAT TELL A STORY</p>
+            </div>
+
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4 data-i18n="footer.aboutTitle">Hakkımızda</h4>
+                    <ul>
+                        <li><a href="#" data-i18n="footer.ourStory">Hikayemiz</a></li>
+                        <li><a href="#" data-i18n="footer.values">Değerlerimiz</a></li>
+                        <li><a href="#" data-i18n="footer.contact">İletişim</a></li>
+                        <li><a href="#" data-i18n="footer.careers">Kariyer</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 data-i18n="footer.customerServiceTitle">Müşteri Hizmetleri</h4>
+                    <ul>
+                        <li><a href="#" data-i18n="footer.faq">Sık Sorulan Sorular</a></li>
+                        <li><a href="#" data-i18n="footer.shipping">Kargo Bilgileri</a></li>
+                        <li><a href="#" data-i18n="footer.returns">İade ve Değişim</a></li>
+                        <li><a href="#" data-i18n="footer.privacy">Gizlilik Politikası</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 data-i18n="footer.accountTitle">Hesabım</h4>
+                    <ul>
+                        <li><a href="#" id="footerLoginLink" data-i18n="auth.login">Giriş Yap</a></li>
+                        <li><a href="#" id="footerRegisterLink" data-i18n="auth.register">Kayıt Ol</a></li>
+                        <li><a href="pages/account.html" data-i18n="auth.myOrders">Siparişlerim</a></li>
+                        <li><a href="#" data-i18n="auth.myWishlist">Favorilerim</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4 data-i18n="footer.contactTitle">Bize Ulaşın</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            info@kleinewunder.com
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            +49 123 456 7890
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            Berlin, Germany
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="logo">
+                    <h3 class="logo-text">Kleine Wunder</h3>
+                    <p class="logo-subtitle">naturkleidung</p>
+                </div>
+
+                <div class="payment-methods">
+                    <span data-i18n="footer.paymentMethods">Ödeme Yöntemleri:</span>
+                    <div class="payment-icons">
+                        <span>💳</span>
+                        <span>💰</span>
+                        <span>📱</span>
+                    </div>
+                </div>
+
+                <p class="copyright">
+                    &copy; 2024 Kleine Wunder. <span data-i18n="footer.copyright">Tüm hakları saklıdır.</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Toast -->
+    <div id="notification" class="notification">
+        <span id="notificationText"></span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/translations.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/wishlist.js"></script>
+    <script src="js/social-media.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
